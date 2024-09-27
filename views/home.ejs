@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title><%= title %></title>
 </head>
 <body class="container">
     <h1>Home</h1>
@@ -19,5 +19,11 @@
         </li>
     </ul>
     <p>Ini halaman home</p>
+
+    <h4>Berita Terkini</h4>
+    <% berita.forEach(data => { %>
+    <h5><%= data.judul %></h5>
+    <p><%= data.isi %></p>
+    <% })%>
 </body>
 </html>
