@@ -1,11 +1,16 @@
 const express = require ("express") //impor modul express
 const app = express()//inisialisasi express
+const expressLayout = require("express-ejs-layouts");//impor modul express-ejs-layouts
 const port = 3002 //port
 
+app.set("views", __dirname + "/views");
 app.set('view engine', 'ejs');
+
+app.use(expressLayout);
+app.use(express.static('public'));
 //route /
 app.get("/",(req,res)=>{
-    ///res.send("Hello");
+    // res.send("Hello");
     // res.sendFile(__dirname + "/home.html");
     const berita = [
         {
@@ -17,8 +22,8 @@ app.get("/",(req,res)=>{
             isi: "Isi berita 2"
         },
     ];
-    res.render('home',{title : 'Halaman home',berita});
-});
+    res.render('home',{title : 'Halaman home',berita, layout: 'main'});
+ });
 
 app.get("/prodi",(req,res)=>{
     ///res.send("Hello");
@@ -61,21 +66,21 @@ app.get("/prodi",(req,res)=>{
         
         }
     ];
-    res.render('prodi',{title : 'Halaman prodi',prodi});
+    res.render('prodi',{title : 'Halaman prodi', prodi, layout:'main'});
 });
 
 //route /about
 app.get("/about", (req,res)=>{
     // res.send("About us");
     // res.sendFile(__dirname + "/About.html");
-    res.render('about',{title : 'Halaman home'});
+    res.render('about',{title : 'Halaman home', layout:'main'} );
 });
     
 //route /contact
 app.get("/contact", (req,res)=>{
     ///res.send("contact us");
     // res.sendFile(__dirname + "/contact.html");
-    res.render('contact',{title : 'Halaman contact'});
+    res.render('contact',{title : 'Contact Us', layout:'main'});
 });
 
 //route /mahasiswa

@@ -1,29 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
-</head>
-<body class="container">
-    <h1>Home</h1>
-    <ul>
-        <li>
-            <a href="/" class="btn btn-primary">Home</a>
-        </li>
-        <li>
-            <a href="/about" class="btn btn-primary">About</a>
-        </li>
-        <li>
-            <a href="/contact" class="btn btn-primary">Contact</a>
-        </li>
-    </ul>
-    <p>Ini halaman home</p>
 
     <h4>Berita Terkini</h4>
     <% berita.forEach(data => { %>
     <h5><%= data.judul %></h5>
     <p><%= data.isi %></p>
     <% })%>
-</body>
-</html>
